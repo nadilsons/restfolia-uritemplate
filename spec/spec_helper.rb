@@ -8,5 +8,14 @@ require 'restfolia_uri_template'
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
-  
+  FakeWeb.allow_net_connect = false
+
+  def fixture(name)
+    File.readlines("#{File.dirname(__FILE__)}/fixtures/#{name}").to_s
+  end
+
+  def register_uri(method, uri, options = {})
+    options.merge!(:content_type => "application/json; charset=utf-8") unless options[:content_type].present?
+    FakeWeb.register_uri(method, uri, options)
+  end
 end

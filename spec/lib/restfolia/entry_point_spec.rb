@@ -5,10 +5,9 @@ describe Restfolia::EntryPoint do
   context "should apply expansion with valid expression" do
     subject { Restfolia::EntryPoint.new("http://example.com/~{username}/", "search").expansion("username" => "bug") }
 
-    its(:class) { should == Restfolia::EntryPoint     }
+    its(:class) { should == Restfolia::EntryPoint      }
     its(:url)   { should == "http://example.com/~bug/" }
-    its(:rel)   { should be_nil                       }
-    #http://example.com/dictionary/{term:1}/{term}
+    its(:rel)   { should be_nil                        }
   end
 
   it "should raise exception when url is empty" do

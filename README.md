@@ -1,7 +1,12 @@
-# restfolia-uritemplate
+# restfolia-uritemplate [![Build Status][travis_status]][travis]
 
-Adds support to uri-templates in the dsl [restfolia](https://github.com/rogerleite/restfolia) with
-the help of gem [uri_template](https://github.com/hannesg/uri_template)
+Adds support to uri-templates in the dsl [restfolia] with the help of gem [uri_template]
+
+[restfolia]: https://github.com/rogerleite/restfolia
+[uri_template]: https://github.com/hannesg/uri_template
+[travis_status]: https://secure.travis-ci.org/nadilsons/restfolia-uritemplate.png
+[travis]: http://travis-ci.org/nadilsons/restfolia-uritemplate
+
 
 See more about uri-template in [RFC 6570](http://tools.ietf.org/html/rfc6570)
 

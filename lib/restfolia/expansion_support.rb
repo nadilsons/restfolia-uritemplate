@@ -20,13 +20,13 @@ module Restfolia::ExpansionSupport
   INVALID_URL       = "Invalid url"
 
   def expansion(replacements)
-    raise(ArgumentError, Restfolia::ExpansionSupport::INVALID_PARAMETER, caller) unless replacements.is_a?(Hash)
+    raise(ArgumentError, INVALID_PARAMETER, caller) unless replacements.is_a?(Hash)
 
     # accessing hash by symbol or string key
     replacements.inject({}) { |memo,(k,v)| memo[k.to_s] = v; memo }
     expanded_url = URITemplate.new(@url).expand(replacements)
 
-    raise(ArgumentError, Restfolia::ExpansionSupport::INVALID_URL, caller) if (expanded_url =~ URI::regexp).nil?
+    raise(ArgumentError, INVALID_URL, caller) if (expanded_url =~ URI::regexp).nil?
     Restfolia::EntryPoint.new(expanded_url)
   end
 

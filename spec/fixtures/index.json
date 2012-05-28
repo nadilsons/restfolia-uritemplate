@@ -1,0 +1,23 @@
+{
+  "value": 10,
+  "name": "Test",
+  "query": null,
+  "tested": false,
+  "links": [
+    {
+      "href": "http://local.tester.anti.bug/{term:1}/{term}",
+      "rel": "search",
+      "type": "application/json"
+    },
+    {
+      "href": "http://local.tester.anti.bug/foo{?query,number}",
+      "rel": "another_search",
+      "type": "application/json"
+    },
+    {
+      "href": "http://local.tester.anti.bug/resource/index",
+      "rel": "self",
+      "type": "application/json"
+    }
+  ]
+}

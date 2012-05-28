@@ -1,13 +1,11 @@
-restfolia-uritemplate
-======================
+# restfolia-uritemplate
 
 Adds support to uri-templates in the dsl [restfolia](https://github.com/rogerleite/restfolia) with
 the help of gem [uri_template](https://github.com/hannesg/uri_template)
 
 See more about uri-template in [RFC 6570](http://tools.ietf.org/html/rfc6570)
 
-Example of use
---------------
+## Example of use
 ```js
 // GET http://local.service.net/id/1
 {
@@ -44,7 +42,6 @@ new_resource_ = resource.link('search').expansion(:term => "dog")
 search = new_resource.get  # => GET to url http://local.service.net/d/dog
 ```
 
-Copyright
----------
+## Copyright
 Copyright (c) 2012 Nadilson. See LICENSE.txt for
 further details.

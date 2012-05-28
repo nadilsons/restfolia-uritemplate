@@ -41,7 +41,7 @@ resource = Restfolia.at('http://local.service.net/id/1').get
 
 # example of hypermedia navigation with uri-template
 new_resource_ = resource.link('search').expansion(:term => "dog")
-search = new_resource.get  # => get to url http://local.service.net/d/dog
+search = new_resource.get  # => GET to url http://local.service.net/d/dog
 ```
 
 Copyright

@@ -1,23 +1,50 @@
 restfolia-uritemplate
 ======================
 
-Adds support to uri-templates in the dsl restfolia
+Adds support to uri-templates in the dsl [restfolia](https://github.com/rogerleite/restfolia) with
+the help of gem [uri_template](https://github.com/hannesg/uri_template)
 
-= restfolia-uritemplate
+See more about uri-template in [RFC 6570](http://tools.ietf.org/html/rfc6570)
 
-Description goes here.
+Example of use
+--------------
+```js
+// GET http://local.service.net/id/1
+{
+  "value": 10,
+  "name": "Test",
+  "query": null,
+  "tested": false,
+  "links": [
+    {
+      "href": "http://local.service.net/{term:1}/{term}",
+      "rel": "search",
+      "type": "application/json"
+    },
+    {
+      "href": "http://local.service.net/foo{?query,number}",
+      "rel": "another_search",
+      "type": "application/json"
+    },
+    {
+      "href": "http://local.service.net/resource/index",
+      "rel": "self",
+      "type": "application/json"
+    }
+  ]
+}
+```
 
-== Contributing to restfolia-uritemplate
- 
-* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
-* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
-* Fork the project.
-* Start a feature/bugfix branch.
-* Commit and push until you are happy with your contribution.
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+```ruby
+# getting a resource
+resource = Restfolia.at('http://local.service.net/id/1').get
 
-== Copyright
+# example of hypermedia navigation with uri-template
+new_resource_ = resource.link('search').expansion(:term => "dog")
+search = new_resource.get  # => get to url http://local.service.net/d/dog
+```
 
+Copyright
+---------
 Copyright (c) 2012 Nadilson. See LICENSE.txt for
 further details.

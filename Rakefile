@@ -27,3 +27,5 @@ task :build do |t|
   Rake::Task['ci:setup:rspec'].invoke
   Rake::Task['spec:rcov'].invoke
 end
+
+task :default => :spec

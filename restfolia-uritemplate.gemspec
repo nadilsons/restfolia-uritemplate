@@ -15,7 +15,5 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency  "fakeweb"    , '1.3.0'
   s.add_development_dependency  "rake"
-  s.add_development_dependency  "rcov"       , '1.0.0'
-  s.add_development_dependency  "rdoc"       , "~> 3.12"
   s.add_development_dependency  "rspec"      , "~> 2.8.0"
 end

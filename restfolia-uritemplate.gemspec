@@ -13,7 +13,6 @@ Gem::Specification.new do |s|
   s.add_dependency "restfolia"    , "~> 1.0.1"
   s.add_dependency "uri_template" , "~> 0.3.0"
 
-  s.add_development_dependency  "bundler"    , "~> 1.0.0"
   s.add_development_dependency  "ci_reporter"
   s.add_development_dependency  "fakeweb"    , '1.3.0'
   s.add_development_dependency  "jeweler"    , "~> 1.8.3"

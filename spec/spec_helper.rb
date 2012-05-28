@@ -3,7 +3,6 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'rspec'
 require 'restfolia_uri_template'
 require 'fakeweb'
-require 'ruby-debug'
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
@@ -17,7 +16,7 @@ RSpec.configure do |config|
   end
 
   def register_uri(method, uri, options = {})
-    options.merge!(:content_type => "application/json; charset=utf-8") unless options[:content_type].nil?
+    options.merge!(:content_type => "application/json; charset=utf-8") if options[:content_type].nil?
     FakeWeb.register_uri(method, uri, options)
   end
 end

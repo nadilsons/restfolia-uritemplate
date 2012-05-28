@@ -1,13 +1,13 @@
-restfolia_uri_template
+restfolia-uritemplate
 ======================
 
 Adds support to uri-templates in the dsl restfolia
 
-= restfolia_uri_template
+= restfolia-uritemplate
 
 Description goes here.
 
-== Contributing to restfolia_uri_template
+== Contributing to restfolia-uritemplate
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.

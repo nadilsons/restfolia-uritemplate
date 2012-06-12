@@ -46,26 +46,29 @@
 #   resource = Restfolia.at(url).get.link('search').expand(:term => "dog")
 #   resource.get  # => GET url http://local.tester.anti.bug/d/dog
 #
-module Restfolia::ExpansionSupport
+module Restfolia
+  module Uritemplate
+    module ExpansionSupport
 
-  INVALID_PARAMETER = "parameter must to be a Hash object"
-  INVALID_URL       = "Invalid url"
+      INVALID_PARAMETER = "parameter must to be a Hash object"
+      INVALID_URL       = "Invalid url"
 
-  # Public: Execute expansion
-  #
-  # replacements - Hash that contains replacements params
-  #
-  # Raises ArgumentError if json parameter is not a Hash object.
-  # Raises ArgumentError if generated url is invalid.
-  def expand(replacements)
-    raise(ArgumentError, INVALID_PARAMETER, caller) unless replacements.is_a?(Hash)
+      # Public: Execute expansion
+      #
+      # replacements - Hash that contains replacements params
+      #
+      # Raises ArgumentError if json parameter is not a Hash object.
+      # Raises ArgumentError if generated url is invalid.
+      def expand(replacements)
+        raise(ArgumentError, INVALID_PARAMETER, caller) unless replacements.is_a?(Hash)
 
-    # accessing hash by symbol or string key
-    replacements = replacements.inject({}) { |memo,(k,v)| memo[k.to_s] = v; memo }
-    expanded_url = URITemplate.new(@url).expand(replacements)
+        # accessing hash by symbol or string key
+        replacements = replacements.inject({}) { |memo,(k,v)| memo[k.to_s] = v; memo }
+        expanded_url = URITemplate.new(@url).expand(replacements)
 
-    raise(ArgumentError, INVALID_URL, caller) if (expanded_url =~ URI::regexp).nil?
-    Restfolia::EntryPoint.new(expanded_url)
+        raise(ArgumentError, INVALID_URL, caller) if (expanded_url =~ URI::regexp).nil?
+        Restfolia::EntryPoint.new(expanded_url)
+      end
+    end
   end
-
 end

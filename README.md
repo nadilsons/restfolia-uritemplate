@@ -11,6 +11,15 @@ Adds support to uri-templates in the dsl [restfolia] with the help of gem [uri_t
 See more about uri-template in [RFC 6570](http://tools.ietf.org/html/rfc6570)
 
 ## Example of use
+```ruby
+# getting a resource
+resource = Restfolia.at('http://local.service.net/id/1').get
+
+# example of hypermedia navigation with uri-template
+new_resource_ = resource.link('search').expansion(:term => "dog")
+search = new_resource.get  # => GET to url http://local.service.net/d/dog
+```
+
 ```js
 // GET http://local.service.net/id/1
 {
@@ -36,15 +45,6 @@ See more about uri-template in [RFC 6570](http://tools.ietf.org/html/rfc6570)
     }
   ]
 }
-```
-
-```ruby
-# getting a resource
-resource = Restfolia.at('http://local.service.net/id/1').get
-
-# example of hypermedia navigation with uri-template
-new_resource_ = resource.link('search').expansion(:term => "dog")
-search = new_resource.get  # => GET to url http://local.service.net/d/dog
 ```
 
 ## Copyright

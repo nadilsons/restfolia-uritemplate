@@ -11,8 +11,6 @@ Gem::Specification.new do |s|
   s.summary           = "Adds support to uri-templates in the dsl restfolia"
   s.description       = "Adds support to uri-templates in the dsl restfolia. See http://tools.ietf.org/html/rfc6570"
 
-  s.rubyforge_project = "restfolia-uritemplate"
-
   s.files             = Dir["lib/**/*,*.gemspec}"]
   s.test_files        = `git ls-files -- {spec,features}/*`.split("\n")
   s.executables       = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
@@ -21,6 +19,6 @@ Gem::Specification.new do |s|
   s.add_dependency "uri_template" , "~> 0.3.0"
 
   s.add_development_dependency  "fakeweb", '1.3.0'
-  s.add_development_dependency  "rake"
+  s.add_development_dependency  "rake", ">= 12.3.3"
   s.add_development_dependency  "rspec"  , "~> 2.8.0"
 end
